@@ -10,6 +10,8 @@ As a software developer, software architect, cloud architect, DevOps engineer, a
 2. ✅ Basic understanding of React
 3. ✅ AWS Account (if you want to deploy your own resume)
 4. ✅ Install Nodejs (if you want to run your own application)
+5. ✅ Install AWS CLI
+6. ✅ Install AWS CDK
 
 ### 🔍🎯 Learning Objectives
 
@@ -20,6 +22,7 @@ As a software developer, software architect, cloud architect, DevOps engineer, a
 5. ✅ Learn how to create AWS CloudFront distribution
 6. ✅ Learn how to manage DNS records in the AWS
 7. ✅ Learn how to enable SSL certificate
+8. ✅ Learn how to use AWS CDK to deploy AWS Lambda and create DynamoDb Table
 
 ### ⚙ Technologies Used:
 
@@ -30,6 +33,8 @@ As a software developer, software architect, cloud architect, DevOps engineer, a
 ![React](https://img.shields.io/badge/-React-black?style=flat-square&logo=react)
 ![Amazon AWS](https://img.shields.io/badge/Amazon%20AWS-232F3E?style=flat-square&logo=amazon-aws)
 ![Amazon S3](https://img.shields.io/badge/-Amazon%20S3-569A31?style=flat-square&logo=amazons3&logoColor=white)
+![Amazon Lambda](https://img.shields.io/badge/-AWS%20Lambda-FF9900?style=flat-square&logo=awslambda&logoColor=white)
+![Amazon Dynamodb](https://img.shields.io/badge/-AWS%20DynamoDb-4053D6?style=flat-square&logo=amazondynamodb&logoColor=white)
 <img src="./route53.svg" alt="Amazon Route53" width="25" height="25">
 <img src="./cloudfront.svg" alt="Amazon CloudFront" width="25" height="25">
 <img src="./certificatemanager.svg" alt="Amazon Certificate Manager" width="25" height="25">
