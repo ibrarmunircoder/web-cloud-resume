@@ -162,3 +162,95 @@ We will access the resume through custom domain. The custom domain should be mat
    ![Simple Routing](/screenshots/image-31.png)
 
 ![Cloud Resume AWS](/screenshots/image-33.png)
+
+Our progress in implementing a cloud-based resume on AWS has been modest but significant. We've successfully deployed the resume on AWS S3 and enhanced its global accessibility and security by integrating AWS CloudFront and enabling SSL certification.
+
+Now, we are going to setup backend on AWS. We are going to store the number of visitors, who visits our resume, in the dynamodb as a persistent layer. For storing the visitors, we will configure aws lambda function written in the Nodejs as a programming language. The frontend will make a API request to the lambda to insert the record into the DynamoDB.
+
+There are multiple ways to setup AWS infrastructure. We could use AWS management console to create resources or services as you did for the frontend part. But, we will be using AWS Cloud Development Kit known as AWS CDK to deploy resources on the cloud. AWS CDK is a infrastructure as code product.
+
+## Create a IAM user
+
+To interact with AWS from AWS CLI, an application, we need to have an IAM user account with programmatic access enabled. You will get an access key and secrete access once you have gone through the process of creating the IAM user. We will use these credentials to setup local environment.
+
+## Setup AWS CLI with credentials
+
+Note, you must have [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) installed on your machine.
+
+```cmd
+aws configure --profile [name of your profile]
+
+aws configure --profile ibrarmunirresume
+```
+
+## Create a Backend folder
+
+```cmd
+mkdir backend
+```
+
+## Install AWS CDK
+
+```cmd
+npm i -g aws-cdk
+```
+
+## Initialize AWS CDK
+
+```cmd
+cdk init --language typescript
+```
+
+![Initialization of AWS CDK](/screenshots/image-34.png)
+
+## Install esbuild npm package
+
+```cmd
+npm i esbuild
+```
+
+## Bootstrap the AWS CDK
+
+```
+# Change directory into backend
+cd backend
+# Add your profile name that you configured in the previous a couple of steps
+cdk bootstrap --profile test-user
+```
+
+![AWS CDK Bootstrap](/screenshots/image-35.png)
+
+## Run cdk Synth to see CloudFormation Template in yaml
+
+```cmd
+cdk synth --profile test-user
+```
+
+## Deploy CDK Backend Stack
+
+```cmd
+cdk deploy --profile test-user
+```
+
+![AWS CDK Deploy Stack](/screenshots/image-36.png)
+
+## Add a visitor record
+
+Open the AWS Console and go to the AWS DynamoDb Dashboard. Click the visitor table and click on the add new record. Add the record with partition id 1.
+
+![Create Record Button](/screenshots/image-37.png)
+![Record](/screenshots/image-38.png)
+
+## Integrated the backend on the frontend
+
+I have updated the frontend code to integrate the backend. The backend will communicate with persistent layer (Dynamodb) to keep track of visitors who have visited my resume.
+
+## Rebuild frontend application
+
+```cmd
+npm run build
+```
+
+## Verify Backend Integration
+
+![Backend Integration](/screenshots/image-39.png)
